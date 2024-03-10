@@ -1,0 +1,25 @@
+version: "3.8"
+services:
+  frontend:
+    build: ./frontend
+    container_name: frontend_c
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
+
+  backend:
+    build: ./backend
+    container_name: backend_c
+    environment:
+      MYSQL_ROOT_PASSWORD: shabloink
+      MYSQL_DATABASE: shabingus
+      MYSQL_AUTHENTICATION_PLUGIN: mysql_native_password
+    ports:
+      - '3306:3306'
+
+  api:
+    build: ./api
+    container_name: api_c
+    ports:
+      - '5000:5000'

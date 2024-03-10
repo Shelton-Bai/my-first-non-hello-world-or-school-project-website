@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* everything */
+* {
+	margin: 0;
+	font-family: Ubuntu;
+}
+
+/*light and dark themes*/
+.light{
+	color:#112e7d;
+	background-color: #dddddd;
+	border:#112e7d
+}
+
+.dark{
+	color:#34e1ff;
+	background-color: #222222;
+	border:#34e1ff
+}
+
+.light a{
+	color:#112e7d;
+}
+
+.dark a{
+	color:#34e1ff;
+}
+
+.Navbar{
+	display: flex;
+	height: 8vh;
+	padding: 5px;
+	border-bottom: solid;
+}
+
+.Navbar .Pages{
+	margin-left: auto;
+	height: 4.5vw;
+	display: flex;
+	align-self: flex-end;
+	padding-bottom: 0.5vh;
+	text-align: center;
+}
+
+.Navbar h1{
+	font-size: 4vw;
+	padding-left: 1vw;
+	align-self: flex-end;
+}
+
+.Navbar a{
+	padding-right: 2vw;
+	padding-left: 2vw;
+	font-size: 2.5vw;
+	align-self: flex-end;
+	color:#34e1ff;
+	background-color: #112e7d;
+	border-radius: 5px;
+	margin-left: 5px;
+	text-decoration: none;
+}
+
+.Navbar a:hover{
+	color:#112e7d;
+	background-color: #34e1ff;
+}
+
+.Content{
+	padding: 2vw;
+}
+
+.Content h1{
+	padding-bottom: 10px;
+}
+
+.Content h2{
+	padding-bottom: 10px;
+}
+
+.Content p{
+	font-size: 20px;
+	white-space: pre-wrap;
+}
+
+.Comment{
+	margin: 5px;
+	padding: 5px;
+	border-radius: 5px;
+	width: 50vw;
+	border-style: solid;
+}
+
+.Comment p{
+	white-space: pre-wrap;
+}
+
+.commentForm {
+	color: inherit;
+	font-family: Ubuntu;
+	font-size: 20px;
+}
+
+.light input[type=text]{
+	background-color: inherit;
+	color: inherit;
+	border: solid #112e7d;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-family: Ubuntu;
+	font-size: 20px;
+	width: 45vw;
+}
+
+.dark input[type=text]{
+	background-color: inherit;
+	color: inherit;
+	border: solid #34e1ff;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-family: Ubuntu;
+	font-size: 20px;
+	width: 45vw;	
+}
+
+.light textarea{
+	background-color: inherit;
+	color: inherit;
+	border: solid #112e7d;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-family: Ubuntu;
+	font-size: 20px;
+	width: 45vw;
+	resize: none;
+}
+
+.dark textarea{
+	background-color: inherit;
+	color: inherit;
+	border: solid #34e1ff;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-family: Ubuntu;
+	font-size: 20px;
+	width: 45vw;
+	resize: none;
+}
+
+.light button[type=submit]{
+	background-color: inherit;
+	color: inherit;
+	border: solid #112e7d;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-family: Ubuntu;
+	font-size: 20px;
+}
+
+.dark button[type=submit]{
+	background-color: inherit;
+	color: inherit;
+	border: solid #34e1ff;
+	padding: 5px;
+	border-radius: 5px;
+	margin: 5px;
+	font-family: Ubuntu;
+	font-size: 20px;
+}
+
+button:active {
+	background-color: #ffffff;
+}
+
+.Home button{
+	background-color: #112e7d;
+	color:#34e1ff;
+	border-radius: 5px;
+	font-size:20px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.Home button:active{
+	color:#ffffff;
+}
+

@@ -72,10 +72,20 @@
 
 .Content h1{
 	padding-bottom: 10px;
+	font-size: 2.5em;
 }
 
 .Content h2{
 	padding-bottom: 10px;
+	font-size: 2em;
+}
+
+.Content h3{
+	font-size: 1.5em;
+}
+
+.Content h4{
+	font-size: 1.25em;
 }
 
 .Content p{
@@ -188,5 +198,23 @@ button:active {
 
 .Home button:active{
 	color:#ffffff;
+}
+
+ul {
+	list-style-type: "- ";
+	font-size: 20px;
+}
+
+.Home ul{
+	font-size: 23px;
+}
+
+.Jobs ul{
+	columns: 2;
+	width: 40vw;
+}
+
+.About p{
+	font-size: 24px;
 }
 

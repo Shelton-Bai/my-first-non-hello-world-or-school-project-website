@@ -11,7 +11,7 @@ app.use(express.json());
 
 // MySQL database connection configuration
 const dbConfig = {
-	host: process.env.MYSQL_HOST || 'backend',
+	host: process.env.MYSQL_HOST || 'backend', //localhost or backend?
 	user: process.env.MYSQL_USER || 'root',
 	password: process.env.MYSQL_PASSWORD || 'shabloink',
 	database: process.env.MYSQL_DATABASE || 'shabingus',

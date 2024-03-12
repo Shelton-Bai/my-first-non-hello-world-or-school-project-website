@@ -9,8 +9,11 @@ const Comments = () => {
 	const [commenter, setCommenter] = useState('');
 	const [commentText, setCommentText] = useState('');
 
+	var Filter = require('bad-words'),
+		filter = new Filter();
+
 	const fetchComments = () => {
-		axios.get('http://localhost:5000/comments')
+		axios.get('http://129.213.85.104:5000/comments')
 		.then(res => {
 			console.log(res);
 			setRetrieved(true);
@@ -29,17 +32,23 @@ const Comments = () => {
 			return;
 		}
 
+		if(filter.isProfane(commenter) || filter.isProfane(commentText)){
+			alert("Please don't use profanity. If this was caused by the Scunthorpe Problem, just tweak your message a bit.");
+			return;
+		}
+
 		const commentJSON = {
 			commenter,
 			commentText
 		}
 
 		try {
-			const response = await axios.post('http://localhost:5000/comments', commentJSON);
+			const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
 			console.log(response.data);
 
 			setCommenter('');
 			setCommentText('');
+			alert('Successfully Posted Comment!');
 			fetchComments();
 
 		} catch (error) {

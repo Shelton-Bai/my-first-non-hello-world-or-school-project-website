@@ -14,7 +14,7 @@ function App() {
 	const [isLoading, setLoading] = useState(true);
 
 	const toggleTheme = () => {
-		if(theme == 'light'){
+		if(theme === 'light'){
 			setTheme('dark');
 		} else {
 			setTheme('light');
@@ -29,9 +29,9 @@ function App() {
 
 	return (
 		<Router>
-			{!isLoading && <div className={`App ${theme}`}>
+			{!isLoading && <div className={`${theme} transition-all font-sans min-h-screen flex flex-col`}>
 				<Navbar></Navbar>
-				<div className="Content">
+				<div className="flex-1 flex-col w-full bg-primary-light dark:bg-primary-dark dark:text-primary-darkText">
 					<Routes>
 						<Route index element={<Home toggleTheme={toggleTheme}/>} />
 						<Route path='/jobs' element={<Jobs />} />
@@ -40,6 +40,12 @@ function App() {
 						<Route path='/hobbies' element={<Hobbies />} />
 					</Routes>
 				</div>
+				<footer className="w-full bg-secondary-light z-50 dark:bg-secondary-dark dark:text-secondary-darkText">
+					<div className='h-12'>
+						<p>Phone: 484-688-3796</p>
+						<p>Email: sb.sheltonbai@gmail.com</p>
+					</div>
+				</footer>
 			</div>}
 		</Router>
 	);

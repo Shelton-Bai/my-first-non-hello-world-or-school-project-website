@@ -14,6 +14,7 @@ const Comments = () => {
 
 	const fetchComments = () => {
 		axios.get('http://129.213.85.104:5000/comments')
+		// axios.get('http://localhost:5000/comments')
 		.then(res => {
 			console.log(res);
 			setRetrieved(true);
@@ -44,6 +45,7 @@ const Comments = () => {
 
 		try {
 			const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
+			// const response = await axios.post('http://localhost:5000/comments', commentJSON);
 			console.log(response.data);
 
 			setCommenter('');
@@ -67,13 +69,15 @@ const Comments = () => {
 				<h3>Leave A Comment!</h3>
 				<label>Name</label>
 				<br/>
-				<input type='text' value={commenter} onChange={(e) => setCommenter(e.target.value)} placeholder="Max 100 Characters"/>
+				<input type='text' value={commenter} onChange={(e) => setCommenter(e.target.value)} placeholder="Max 100 Characters"
+				className='border-solid border-2 border-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
 				<br/>
 				<label>Comment</label>
 				<br/>
-				<textarea value={commentText} onChange={(e) => setCommentText(e.target.value)} placeholder="Max 500 Characters"/>
+				<textarea value={commentText} onChange={(e) => setCommentText(e.target.value)} placeholder="Max 500 Characters" 
+				className='border-solid border-2 border-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
 				<br/>
-				<button type="submit">Submit Comment!</button>
+				<button type="submit" className='component-button'>Submit Comment!</button>
 			</form>
 
 			<h2>Latest Comments</h2>
@@ -81,7 +85,7 @@ const Comments = () => {
 			{!retrieved && <p>Failed to retrieve comments. Whoops.</p>}
 
 			{comments.map(comment => (
-				<div className='Comment' key={comment.id}>
+				<div className='border-solid border-2 border-component-light m-2 p-2 rounded-lg' key={comment.id}>
 					<p>
 					<strong>{comment.commenter}</strong> at {comment.timestamp}:
 					<br/>

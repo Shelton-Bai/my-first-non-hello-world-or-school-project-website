@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+	.navbar-link{
+		@apply m-auto mx-10 text-3xl rounded-md hover:shadow-md font-semibold w-40 text-center bg-component-light dark:bg-component-dark dark:text-component-darkText;
+	}
+
+	.component-button{
+		@apply bg-slate-400 rounded-lg px-2 bg-component-light dark:bg-component-dark dark:text-component-darkText;	
+	}
+}

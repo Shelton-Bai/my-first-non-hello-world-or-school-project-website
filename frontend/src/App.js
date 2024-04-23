@@ -29,9 +29,10 @@ function App() {
 
 	return (
 		<Router>
-			{!isLoading && <div className={`${theme} transition-all font-sans min-h-screen flex flex-col`}>
-				<Navbar></Navbar>
-				<div className="flex-1 flex-col w-full bg-primary-light dark:bg-primary-dark dark:text-primary-darkText">
+			{!isLoading && <div className={`${theme} transition-all duration-200 font-sans min-h-screen flex flex-col`}>
+				<Navbar toggleTheme={toggleTheme}></Navbar>
+				<div className="flex-1 flex-col w-full transition-all duration-200 p-24 pt-4
+				bg-body-light text-main-light dark:bg-body-dark dark:text-main-dark">
 					<Routes>
 						<Route index element={<Home toggleTheme={toggleTheme}/>} />
 						<Route path='/jobs' element={<Jobs />} />
@@ -40,12 +41,6 @@ function App() {
 						<Route path='/hobbies' element={<Hobbies />} />
 					</Routes>
 				</div>
-				<footer className="w-full bg-secondary-light z-50 dark:bg-secondary-dark dark:text-secondary-darkText">
-					<div className='h-12'>
-						<p>Phone: 484-688-3796</p>
-						<p>Email: sb.sheltonbai@gmail.com</p>
-					</div>
-				</footer>
 			</div>}
 		</Router>
 	);

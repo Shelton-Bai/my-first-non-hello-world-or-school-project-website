@@ -44,8 +44,8 @@ const Comments = () => {
 		}
 
 		try {
-			const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
-			// const response = await axios.post('http://localhost:5000/comments', commentJSON);
+			// const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
+			const response = await axios.post('http://localhost:5000/comments', commentJSON);
 			console.log(response.data);
 
 			setCommenter('');
@@ -66,28 +66,30 @@ const Comments = () => {
 	return (
 		<div>
 			<form onSubmit={(e) => postComment(e)} className='commentForm'>
-				<h3>Leave A Comment!</h3>
+				<h3 className='emphasis text-3xl'>Leave A Comment!</h3>
 				<label>Name</label>
 				<br/>
 				<input type='text' value={commenter} onChange={(e) => setCommenter(e.target.value)} placeholder="Max 100 Characters"
-				className='border-solid border-2 border-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
+				className='border-solid border-2 border-component-light text-component-light placeholder:text-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
 				<br/>
 				<label>Comment</label>
 				<br/>
 				<textarea value={commentText} onChange={(e) => setCommentText(e.target.value)} placeholder="Max 500 Characters" 
-				className='border-solid border-2 border-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
+				className='border-solid border-2 border-component-light placeholder:text-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
 				<br/>
-				<button type="submit" className='component-button'>Submit Comment!</button>
+				<button type="submit" className='component-button 
+				border-component-light text-component-light placeholder:text-component-light
+				dark:border-component-dark dark:text-component-dark'>Submit Comment!</button>
 			</form>
 
-			<h2>Latest Comments</h2>
+			<h2 className='emphasis text-3xl py-4'>Latest Comments</h2>
 
 			{!retrieved && <p>Failed to retrieve comments. Whoops.</p>}
 
 			{comments.map(comment => (
 				<div className='border-solid border-2 border-component-light m-2 p-2 rounded-lg' key={comment.id}>
 					<p>
-					<strong>{comment.commenter}</strong> at {comment.timestamp}:
+					<strong className='emphasis'>{comment.commenter}</strong> at {comment.timestamp}:
 					<br/>
 					{comment.comment}
 					</p>

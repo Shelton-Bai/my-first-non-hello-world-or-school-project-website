@@ -6,38 +6,26 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		extend: {
-			// colors: {
-			// 	primary: '#cbd5d7',
-			// 	secondary: '#101010',
-			// 	component: '#000078',
-			// 	textprimary: '#000078',
-			// 	textsecondary: '#100000',
-			// 	textcomponent: '#cbd5d7',
-			// 	darkprimary: '#101010',
-			// 	darksecondary: '#100000',
-			// 	darkcomponent: '#64ffff',
-			// 	darktextprimary: '#64ffff',
-			// 	darktextsecondary: '#100000',
-			// 	darktextcomponent: '#101010',
-			// },
 			colors: {
-				primary: {
-					darkText: '#00c6e0',	//Dark Text
-					lightText: '#000000',	//Light Text
-					dark: '#02101a',		//Dark BG
-					light: '#FFFFFF', 	//Light BG
+				main: { //main text color
+					light: '#666666',
+					dark: '#88a0b3',
 				},
-				secondary: {
-					darkText: '#00c6e0',	//Dark Text
-					lightText: '#000000',	//Light Text
-					dark: '#00417a',		//Dark BG
-					light: '#2199ff', 	//Light BG
+				body: { //background color
+					light: '#ffffff',
+					dark: '#00213b',
 				},
-				component: {
-					darkText: '#F0F0F0',	//Dark Text
-					lightText: '#000000',	//Light Text
-					dark: '#00c6e0',		//Dark BG
-					light: '#6bbbff', 	//Light BG
+				emphasis: { //title and important color
+					light: '#000000',
+					dark: '#e8f5ff',
+				},
+				component: { //button and hover color
+					light: '#1ccceb',
+					dark: '#1ccceb',
+				},
+				navbar: { //navbar bg
+					light: '#f0f0f0',
+					dark: '#002745',
 				},
 			},
 		},

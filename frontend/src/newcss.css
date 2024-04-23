@@ -4,10 +4,28 @@
 
 @layer components {
 	.navbar-link{
-		@apply m-auto mx-10 text-3xl rounded-md hover:shadow-md font-semibold w-40 text-center bg-component-light dark:bg-component-dark dark:text-component-darkText;
+		@apply m-auto text-3xl rounded-md font-semibold mx-4 text-center
+		text-emphasis-light dark:text-emphasis-dark
+		hover:text-component-light dark:hover:text-component-dark
+		hover:text-4xl
+		transition-all duration-200;
 	}
 
 	.component-button{
-		@apply bg-slate-400 rounded-lg px-2 bg-component-light dark:bg-component-dark dark:text-component-darkText;	
+		@apply rounded-lg px-1 border-2 
+		border-main-light text-main-light dark:border-main-dark dark:text-main-dark
+		hover:border-component-light hover:text-component-light dark:hover:border-component-dark dark:hover:text-component-dark
+		hover:p-2
+		transition-all duration-200;	
+	}
+
+	.interactable{
+		@apply hover:border-component-light hover:text-component-light dark:hover:border-component-dark dark:hover:text-component-dark
+		transition-all duration-200;
+	}
+
+	.emphasis{
+		@apply font-bold text-emphasis-light dark:text-emphasis-dark
+		transition-all duration-200;
 	}
 }

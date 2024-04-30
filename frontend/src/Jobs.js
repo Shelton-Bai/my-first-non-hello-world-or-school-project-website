@@ -1,4 +1,4 @@
-import Pdf from './Shelton Bai Resume 3-21-2024.pdf';
+import Pdf from './Shelton Bai Resume.pdf';
 import Comments from './Comments'
 
 function Jobs() {

@@ -1,0 +1,9 @@
+docker run -it --rm --name certbot \
+    -v $(pwd)/nginx/certs:/etc/nginx/certs \
+    -v $(pwd)/nginx/html:/usr/share/nginx/html \
+    certbot/certbot certonly --webroot \
+    --webroot-path=/usr/share/nginx/html \
+    --email sb.sheltonbai@gmail.com \
+    --agree-tos \
+    --no-eff-email \
+    -d sheltonbai.com

@@ -38,3 +38,10 @@ services:
       - frontend
       - backend
       - api
+  
+  certbot:
+  image: certbot/certbot
+  container_name: certbot_c
+  volumes:
+    - ./nginx/certs:/etc/nginx/certs
+  entrypoint: /bin/sh -c "trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done"

@@ -39,10 +39,10 @@ services:
       - backend
       - api
   
-  certbot:
-    image: certbot/certbot
-    container_name: certbot_c
-    volumes:
-      - ./certbot/conf:/etc/letsencrypt
-      - ./certbot/www:/var/www/certbot
-    command: certonly --webroot -w /var/www/certbot --force-renewal --email sb.sheltonbai@gmail.com -d sheltonbai.com --agree-tos
+  # certbot:
+  #   image: certbot/certbot
+  #   container_name: certbot_c
+  #   volumes:
+  #     - ./certbot/conf:/etc/letsencrypt
+  #     - ./certbot/www:/var/www/certbot
+  #   command: certonly --webroot -w /var/www/certbot --force-renewal --email sb.sheltonbai@gmail.com -d sheltonbai.com --agree-tos

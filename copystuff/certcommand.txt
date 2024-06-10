@@ -22,3 +22,7 @@ sudo docker run -it --rm --name certbot \
     --agree-tos \
     -d sheltonbai.com \
     --server https://acme-v02.api.letsencrypt.org/directory
+
+docker run --rm certbot certonly --webroot -w /var/www/certbot --agree-tos -m sb.sheltonbai@gmail.com -d sheltonbai.com
+
+docker compose run certbot certonly --webroot --webroot-path=/usr/share/nginx/html -d sheltonbai.com --email sb.sheltonbai@gmail.com --agree-tos --no-eff-email

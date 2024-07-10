@@ -7,7 +7,7 @@ const Comments = () => {
 	const [retrieved, setRetrieved] = useState(false);
 
 	const [commenter, setCommenter] = useState('');
-	const [commentText, setCommentText] = useState('');
+	const [comment, setcomment] = useState('');
 
 	var Filter = require('bad-words'),
 		filter = new Filter();
@@ -27,21 +27,21 @@ const Comments = () => {
 
 	const postComment = async (e) => {
 		e.preventDefault();
-		console.log("submitted form with comment: " + commentText + " written by commenter: " + commenter);
+		console.log("submitted form with comment: " + comment + " written by commenter: " + commenter);
 
-		if(commenter.trim() === '' || commentText.trim() === ''){
+		if(commenter.trim() === '' || comment.trim() === ''){
 			alert('Both the name and comment fields cannot be empty!');
 			return;
 		}
 
-		if(filter.isProfane(commenter) || filter.isProfane(commentText)){
+		if(filter.isProfane(commenter) || filter.isProfane(comment)){
 			alert("Please don't use profanity. If this was caused by the Scunthorpe Problem, just tweak your message a bit.");
 			return;
 		}
 
 		const commentJSON = {
 			commenter,
-			commentText
+			comment
 		}
 
 		try {
@@ -51,7 +51,7 @@ const Comments = () => {
 			console.log(response.data);
 
 			setCommenter('');
-			setCommentText('');
+			setcomment('');
 			alert('Successfully Posted Comment!');
 			fetchComments();
 
@@ -76,7 +76,7 @@ const Comments = () => {
 				<br/>
 				<label>Comment</label>
 				<br/>
-				<textarea value={commentText} onChange={(e) => setCommentText(e.target.value)} placeholder="Max 500 Characters" 
+				<textarea value={comment} onChange={(e) => setcomment(e.target.value)} placeholder="Max 500 Characters" 
 				className='border-solid border-2 border-component-light placeholder:text-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
 				<br/>
 				<button type="submit" className='component-button 

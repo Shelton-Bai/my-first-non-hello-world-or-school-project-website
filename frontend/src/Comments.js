@@ -13,7 +13,7 @@ const Comments = () => {
 		filter = new Filter();
 
 	const fetchComments = () => {
-		axios.get('https://sheltonbai.com/expressapi/')
+		axios.get('https://sheltonbai.com/springapiget/')
 		// axios.get('http://129.213.85.104:5000/comments')
 		// axios.get('http://localhost:5000/comments')
 		.then(res => {
@@ -91,7 +91,7 @@ const Comments = () => {
 			{comments.map(comment => (
 				<div className='border-solid border-2 border-component-light m-2 p-2 rounded-lg' key={comment.id}>
 					<p>
-					<strong className='emphasis'>{comment.commenter}</strong> at {comment.timestamp}:
+					<strong className='emphasis'>{comment.commenter}</strong>:
 					<br/>
 					{comment.comment}
 					</p>

@@ -13,7 +13,8 @@ const Comments = () => {
 		filter = new Filter();
 
 	const fetchComments = () => {
-		axios.get('http://129.213.85.104:5000/comments')
+		axios.get('https://sheltonbai.com/expressapi/')
+		// axios.get('http://129.213.85.104:5000/comments')
 		// axios.get('http://localhost:5000/comments')
 		.then(res => {
 			console.log(res);
@@ -44,7 +45,8 @@ const Comments = () => {
 		}
 
 		try {
-			const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
+			const response = await axios.post('https://sheltonbai.com/expressapi/');
+			// const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
 			// const response = await axios.post('http://localhost:5000/comments', commentJSON);
 			console.log(response.data);
 

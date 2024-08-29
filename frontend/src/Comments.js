@@ -66,37 +66,41 @@ const Comments = () => {
 	}, []);
 
 	return (
-		<div>
-			<form onSubmit={(e) => postComment(e)} className='commentForm'>
-				<h3 className='emphasis text-3xl'>Leave A Comment!</h3>
-				<label>Name</label>
-				<br/>
-				<input type='text' value={commenter} onChange={(e) => setCommenter(e.target.value)} placeholder="Max 100 Characters"
-				className='border-solid border-2 border-component-light text-component-light placeholder:text-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
-				<br/>
-				<label>Comment</label>
-				<br/>
-				<textarea value={comment} onChange={(e) => setcomment(e.target.value)} placeholder="Max 500 Characters" 
-				className='border-solid border-2 border-component-light placeholder:text-component-light m-2 p-2 rounded-lg w-1/3 bg-inherit'/>
-				<br/>
-				<button type="submit" className='component-button 
-				border-component-light text-component-light placeholder:text-component-light
-				dark:border-component-dark dark:text-component-dark'>Submit Comment!</button>
-			</form>
-
-			<h2 className='emphasis text-3xl py-4'>Latest Comments</h2>
-
-			{!retrieved && <p>Failed to retrieve comments. Whoops.</p>}
-
-			{comments.map(comment => (
-				<div className='border-solid border-2 border-component-light m-2 p-2 rounded-lg' key={comment.id}>
-					<p>
-					<strong className='emphasis'>{comment.commenter}</strong>:
+		<div className='text-grayscale-900 flex flex-row'>
+			<div className='pr-4 w-4/12 flex-shrink-0'>
+				<form onSubmit={(e) => postComment(e)} className='commentForm'>
+					<h3 className='text-5xl mb-5'>Leave A Comment!</h3>
+					<label className='text-3xl'>Name</label>
 					<br/>
-					{comment.comment}
-					</p>
-				</div>
-			))}
+					<input type='text' value={commenter} onChange={(e) => setCommenter(e.target.value)} placeholder="Max 100 Characters"
+					className='border-solid border-2 p-2 rounded-lg bg-inherit my-2 text-2xl w-5/6'/>
+					<br/>
+					<label className='text-3xl'>Comment</label>
+					<br/>
+					<textarea value={comment} onChange={(e) => setcomment(e.target.value)} placeholder="Max 500 Characters" 
+					className='border-solid border-2 p-2 rounded-lg bg-inherit my-2 text-2xl w-5/6'/>
+					<br/>
+					<button type="submit" className='border-solid border-2 p-2 rounded-lg bg-inherit text-2xl'>Submit Comment!</button>
+				</form>
+			</div>
+			<div className='pl-10'>
+				<h2 className='text-5xl'>Latest Comments</h2>
+
+				{!retrieved && <p className='text-2xl mt-5'>Failed to retrieve comments. Whoops.</p>}
+
+				{comments.map(comment => (
+					<div className='border-solid border-2 border-grayscale-900 my-2 p-2 rounded-lg' key={comment.id}>
+						<p className='text-3xl'>
+							{comment.commenter}:
+						</p>
+						<p className='text-2xl text-grayscale-700'>
+							{comment.comment}
+						</p>						
+					</div>
+				))}
+			</div>
+
+			
 
 		</div>
 	);

@@ -1,4 +1,5 @@
-import {React, useState} from 'react';
+import {React, useState, useEffect} from 'react';
+import axios from 'axios';
 
 const skillsData = {
 	"Programming Languages": [
@@ -97,27 +98,64 @@ const skillsData = {
 			description: "Though I don't use it as commonly as MySQL, Postgres was actually what I learned to use first, through an elective course in college. I also learned a bit of JDBC in that course, but I don't think I would be very good at either PostgreSQL or JDBC without a refresher." 
 		},
 	],
-	// "Everything Else": [
-	// 	{ 
-	// 		name: "[NAME]", 
-	// 		level: "[LEVEL]",
-	// 		description: "[DESCRIPTION]" 
-	// 	},
-	// ],
 };
 
 function SkillDisplay() {
 
 	const [selectedCategory, setSelectedCategory] = useState("Programming Languages");
 
+	const [languages, setLanguages] = useState([]);
+	const [frameworks, setFrameworks] = useState([]);
+	const [tools, setTools] = useState([]);
+	const [misc, setMisc] = useState([]);
+
+	const categoryMapping = {
+		"Programming Languages": languages,
+		"Frameworks/Libraries": frameworks,
+		"Database/Cloud/Dev Tools": tools,
+		"Miscellaneous": misc,
+	};
+
 	const handleCategoryClick = (category) => {
 		setSelectedCategory(category);
 	};
 
+	useEffect(() => {
+		fetchSkills();
+	}, []);
+
+	//fetches all skills
+	const fetchSkills = () => {
+		axios.get('http://localhost:8080/api/skills/languages')
+		.then(res => {
+			setLanguages(res.data)
+		}).catch( err => {
+			console.log(err);
+		})
+		axios.get('http://localhost:8080/api/skills/frameworks')
+		.then(res => {
+			setFrameworks(res.data)
+		}).catch( err => {
+			console.log(err);
+		})
+		axios.get('http://localhost:8080/api/skills/tools')
+		.then(res => {
+			setTools(res.data)
+		}).catch( err => {
+			console.log(err);
+		})
+		axios.get('http://localhost:8080/api/skills/misc')
+		.then(res => {
+			setMisc(res.data)
+		}).catch( err => {
+			console.log(err);
+		})
+	}
+
 	return (
 		<div className=''>
 			<div className='flex space-x-6 px-32 py-10 bg-gradient-to-bl from-grayscale-150 via-grayscale-200 to-grayscale-200'>
-				{Object.keys(skillsData).map((category) => (
+				{Object.keys(categoryMapping).map((category) => (
 					<p
 						key={category}
 						onClick={() => handleCategoryClick(category)}
@@ -133,7 +171,7 @@ function SkillDisplay() {
 			</div>
 
 			<div className='mt-10 px-32 w-10/12'>
-				{skillsData[selectedCategory].map((skill, index) => (
+				{categoryMapping[selectedCategory].map((skill, index) => (
 					<div key={index} className='mb-6'>
 						<p className='text-grayscale-900 text-2xl'>{skill.name}</p>
 						<p className='text-grayscale-900 text-lg'>Skill Level: {skill.level}</p>

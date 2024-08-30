@@ -45,9 +45,9 @@ const Comments = () => {
 		}
 
 		try {
-			const response = await axios.post('https://sheltonbai.com/springapipost/', commentJSON);
+			// const response = await axios.post('https://sheltonbai.com/springapipost/', commentJSON);
 			// const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
-			// const response = await axios.post('http://localhost:5000/comments', commentJSON);
+			const response = await axios.post('http://localhost:5000/comments', commentJSON);
 			console.log(response.data);
 
 			setCommenter('');

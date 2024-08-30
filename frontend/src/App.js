@@ -5,6 +5,7 @@ import Projects from './Projects';
 import About from './About';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Admin from './Admin';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
 						<Route path='/skills' element={<Skills />} />
 						<Route path='/projects' element={<Projects />} />
 						<Route path='/comments' element={<About />} />
+						<Route path='/admin' element={<Admin />} />
 					</Routes>
 				</div>
 		</Router>

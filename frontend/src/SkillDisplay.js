@@ -155,7 +155,8 @@ function SkillDisplay() {
 	return (
 		<div className=''>
 			<div className='flex space-x-6 px-32 py-10 bg-gradient-to-bl from-grayscale-150 via-grayscale-200 to-grayscale-200'>
-				{Object.keys(categoryMapping).map((category) => (
+				{/* {Object.keys(categoryMapping).map((category) => ( */}
+				{Object.keys(skillsData).map((category) => (
 					<p
 						key={category}
 						onClick={() => handleCategoryClick(category)}
@@ -171,7 +172,8 @@ function SkillDisplay() {
 			</div>
 
 			<div className='mt-10 px-32 w-10/12'>
-				{categoryMapping[selectedCategory].map((skill, index) => (
+				{/* {categoryMapping[selectedCategory].map((skill, index) => ( */}
+				{skillsData[selectedCategory].map((skill, index) => (
 					<div key={index} className='mb-6'>
 						<p className='text-grayscale-900 text-2xl'>{skill.name}</p>
 						<p className='text-grayscale-900 text-lg'>Skill Level: {skill.level}</p>

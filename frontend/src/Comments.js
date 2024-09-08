@@ -13,7 +13,8 @@ const Comments = () => {
 		filter = new Filter();
 
 	const fetchComments = () => {
-		axios.get('https://sheltonbai.com/springapiget/')
+		// axios.get('https://sheltonbai.com/springapiget/')
+		axios.get('https://sheltonbai.com/csharpapi/')
 		// axios.get('http://129.213.85.104:5000/comments')
 		// axios.get('http://localhost:5000/comments')
 		.then(res => {
@@ -39,15 +40,21 @@ const Comments = () => {
 			return;
 		}
 
+		// const commentJSON = {
+		// 	commenter,
+		// 	comment
+		// }
+
 		const commentJSON = {
 			commenter,
-			comment
+			commentText: comment
 		}
 
 		try {
 			// const response = await axios.post('https://sheltonbai.com/springapipost/', commentJSON);
 			// const response = await axios.post('http://129.213.85.104:5000/comments', commentJSON);
-			const response = await axios.post('http://localhost:5000/comments', commentJSON);
+			// const response = await axios.post('http://localhost:5000/comments', commentJSON);
+			const response = await axios.post('https://sheltonbai.com/csharpapi/', commentJSON);
 			console.log(response.data);
 
 			setCommenter('');
@@ -94,7 +101,8 @@ const Comments = () => {
 							{comment.commenter}:
 						</p>
 						<p className='text-2xl text-grayscale-700'>
-							{comment.comment}
+							{/* {comment.comment} */}
+							{comment.commentText}
 						</p>						
 					</div>
 				))}

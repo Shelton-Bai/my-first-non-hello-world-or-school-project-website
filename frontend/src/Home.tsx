@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
 
+interface TimeLeft {
+	days?: string;
+	hours?: string;
+	minutes?: string;
+	seconds?: string;
+}
+
 function Home() {
 
 	return (
@@ -36,12 +43,12 @@ function Home() {
 }
 
 function Timer() {
-	const calculateTimeLeft = () => {
+	const calculateTimeLeft = (): TimeLeft => {
 		const targetDate = new Date('2024-12-21T22:34:59');
 		const now = new Date();
-		const difference = targetDate - now;
+		const difference = targetDate.getTime() - now.getTime();
 
-		let timeLeft = {};
+		let timeLeft: TimeLeft = {};
 
 		if (difference > 0) {
 			timeLeft = {
@@ -62,7 +69,7 @@ function Timer() {
 		return timeLeft;
 	};
 
-	const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+	const [timeLeft, setTimeLeft] = useState<TimeLeft>(calculateTimeLeft());
 
 	useEffect(() => {
 		const timer = setInterval(() => {

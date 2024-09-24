@@ -4,7 +4,7 @@ import SkillEdit from './SkillEdit';
 
 const Admin = () => {	
 	return (
-		<div className="bg-gradient-to-tl from-grayscale-150 via-grayscale-100 to-grayscale-150 flex flex-col min-h-screen px-32 py-20">
+		<div className="bg-gradient-to-tl from-grayscale-150 via-grayscale-100 to-grayscale-150 flex flex-col min-h-screen px-32 py-4">
 			<SkillEdit/>
 		</div>
 	);

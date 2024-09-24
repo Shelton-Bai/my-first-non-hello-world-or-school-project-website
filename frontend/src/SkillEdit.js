@@ -25,10 +25,10 @@ const SkillEdit = () => {
 		"Miscellaneous": misc,
 	};
 	const formCatMap = {
-		"Programming Languages": 'language',
-		"Frameworks/Libraries": 'framework',
-		"Database/Cloud/Dev Tools": 'tool',
-		"Miscellaneous": 'misc',
+		"Programming Languages": 'LANGUAGES',
+		"Frameworks/Libraries": 'FRAMEWORKS',
+		"Database/Cloud/Dev Tools": 'TOOLS',
+		"Miscellaneous": 'MISC',
 	};
 
 	useEffect(() => {
@@ -37,25 +37,25 @@ const SkillEdit = () => {
 
 	//fetches all skills
 	const fetchSkills = () => {
-		axios.get('http://localhost:8080/api/skills/languages')
+		axios.get('http://localhost:8080/api/skills/category/LANGUAGES')
 		.then(res => {
 			setLanguages(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/frameworks')
+		axios.get('http://localhost:8080/api/skills/category/FRAMEWORKS')
 		.then(res => {
 			setFrameworks(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/tools')
+		axios.get('http://localhost:8080/api/skills/category/TOOLS')
 		.then(res => {
 			setTools(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/misc')
+		axios.get('http://localhost:8080/api/skills/category/MISC')
 		.then(res => {
 			setMisc(res.data)
 		}).catch( err => {
@@ -69,14 +69,12 @@ const SkillEdit = () => {
 		setLevel(skill.level);
 		setDescription(skill.description);
 		setId(skill.id);
-		setPriority(skill.priority);
 	}
 
 	const onDelete = async (id) => {
 		try {
-			const response = await axios.delete(`http://localhost:8080/api/skills/delete?id=${id}`);
-			console.log('Skill deleted:', response.data);
-			alert(response.data);
+			await axios.delete(`http://localhost:8080/api/skills/${id}`);
+			alert('Skill deleted successfully');
 		} catch (error) {
 			console.error('Error deleting skill:', error);
 		}
@@ -98,25 +96,20 @@ const SkillEdit = () => {
 			description,
 			category: formCatMap[selectedCategory]
 		}
-		if(formAction === 'add'){
-			try {
-				const response = await axios.post('http://localhost:8080/api/skills/addskill', skillJSON);
-				console.log(response.data);
+		
+		try {
+			if (formAction === 'add') {
+				const response = await axios.post('http://localhost:8080/api/skills', skillJSON);
 				alert('Successfully Added Skill!');
-				fetchSkills();
-			} catch (error) {
-				console.error(error);
-			}
-		} else if(formAction === 'edit'){
-			try {
-				const response = await axios.put(`http://localhost:8080/api/skills/update?id=${id}`, skillJSON);
-				console.log(response.data);
+			} else if (formAction === 'edit') {
+				const response = await axios.put(`http://localhost:8080/api/skills/${id}`, skillJSON);
 				alert('Successfully Updated Skill!');
-				fetchSkills();
-			} catch (error) {
-				console.error(error);
 			}
+		} catch (error) {
+			console.error(error);
 		}
+
+		fetchSkills();
 		
 	}
 
@@ -127,26 +120,27 @@ const SkillEdit = () => {
 		setLevel('');
 		setDescription('');
 		setId(-1);
-		setPriority(0);
 	}
 	
 	return (
-		<div className="bg-gradient-to-tl from-grayscale-150 via-grayscale-100 to-grayscale-150 flex flex-col min-h-screen">
-			<div className='flex justify-start border-red-600'>
-				<div className='flex-1 border-green-600 flex-col pr-4'>
+		<div className="bg-gradient-to-tl from-grayscale-150 via-grayscale-100 to-grayscale-150 flex flex-col max-h-screen">
+			<div className='flex justify-start border-red-600 border'>
+				<div className='flex-1 border-green-600 flex-col pr-4 border relative'>
 					<div className='flex-1'>
 						{Object.keys(categoryMapping).map((category) => (
-							<p
-								key={category}
-								onClick={() => setSelectedCategory(category)}
-								className={`cursor-pointer transition-all mt-3 ${
-									category === selectedCategory
-										? 'text-3xl text-light-100'
-										: 'text-3xl text-light-200 hover:text-3xl hover:text-light-100'
-								}`}
-							>
-								{category}
-							</p>
+							<div className='flex-1 flex-row'>
+								<p
+									key={category}
+									onClick={() => setSelectedCategory(category)}
+									className={`cursor-pointer transition-all mt-3 ${
+										category === selectedCategory
+											? 'text-3xl text-light-100'
+											: 'text-3xl text-light-200 hover:text-3xl hover:text-light-100'
+									}`}
+								>
+									{category}
+								</p>
+							</div>
 						))}
 					</div>
 					<div className='flex-1 border-yellow-600  text-grayscale-900 mt-4'>
@@ -168,8 +162,6 @@ const SkillEdit = () => {
 									<input type='text' placeholder='Skill Name' value={name} onChange={(e) => setName(e.target.value)} className='bg-inherit border-2 p-2 rounded-lg my-1'/>
 									<p>Level</p>
 									<input type='text' placeholder='Skill Level' value={level} onChange={(e) => setLevel(e.target.value)} className='bg-inherit border-2 p-2 rounded-lg my-1'/>
-									<p>Priority</p>
-									<input type='number' placeholder='Priority' value={priority} onChange={(e) => setPriority(e.target.value)} className='bg-inherit border-2 p-2 rounded-lg my-1'/>
 									<p>Description</p>
 									<textarea placeholder='Description' value={description} onChange={(e) => setDescription(e.target.value)} rows={5} className='bg-inherit border-2 p-2 rounded-lg w-full my-1'/>
 									<br/>
@@ -198,7 +190,7 @@ const SkillEdit = () => {
 
 const SkillsView = ({skills, onDelete, onEdit}) => {
 	return (
-		<div className='text-grayscale-900 flex-1 mx-2'>
+		<div className='text-grayscale-900 flex-1 mx-2 overflow-y-scroll max-h-96'>
 				{skills.map(skill => (
 					<div key={skill.id} className='rounded-lg border-grayscale-900 border border-solid p-2 my-2'>
 						<div className='flex flex-row'>
@@ -212,7 +204,7 @@ const SkillsView = ({skills, onDelete, onEdit}) => {
 							</button>
 						</div>
 						<div>
-							<p>ID: {skill.id} | Prio: {skill.priority}</p>
+							<p>ID: {skill.id}</p>
 							<p className='text-xl'>Level: {skill.level}</p>
 							<p className='text-xl text-grayscale-700'>{skill.description}</p>
 						</div>

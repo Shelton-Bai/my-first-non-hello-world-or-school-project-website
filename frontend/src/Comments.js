@@ -14,9 +14,9 @@ const Comments = () => {
 
 	const fetchComments = () => {
 		// axios.get('https://sheltonbai.com/springapiget/')
-		axios.get('https://sheltonbai.com/csharpapi/')
+		// axios.get('https://sheltonbai.com/csharpapi/')
 		// axios.get('http://129.213.85.104:5000/comments')
-		// axios.get('http://localhost:5000/comments')
+		axios.get('http://localhost:5000/comments')
 		.then(res => {
 			console.log(res);
 			setRetrieved(true);

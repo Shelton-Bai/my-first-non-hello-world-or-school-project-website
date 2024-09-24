@@ -10,7 +10,7 @@ function Navbar() {
 				<a className="navbar-link" href="/skills">Skills</a>
 				<a className="navbar-link" href="/projects">Projects</a>
 				<a className="navbar-link" href="/comments">Comments</a>
-				{/* <a className="navbar-link" href="/admin">Admin</a> */}
+				<a className="navbar-link" href="/admin">Admin</a>
 			</div>
 			<div className="flex flex-row w-1/2 justify-end items-center gap-8">
 				<a target="_blank" href="https://github.com/Shelton-Bai" rel="noreferrer">

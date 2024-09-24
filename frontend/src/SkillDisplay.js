@@ -1,13 +1,5 @@
-import {useState, useEffect} from 'react';
+import {React, useState, useEffect} from 'react';
 import axios from 'axios';
-
-interface Skill {
-	name: string;
-	level: string;
-	description: string;
-}
-
-type SkillsCategory = "Programming Languages" | "Frameworks/Libraries" | "Database/Cloud/Dev Tools";
 
 const skillsData = {
 	"Programming Languages": [
@@ -110,20 +102,21 @@ const skillsData = {
 
 function SkillDisplay() {
 
-	const [selectedCategory, setSelectedCategory] = useState<SkillsCategory>("Programming Languages");
+	const [selectedCategory, setSelectedCategory] = useState("Programming Languages");
 
 	const [languages, setLanguages] = useState([]);
 	const [frameworks, setFrameworks] = useState([]);
 	const [tools, setTools] = useState([]);
 	const [misc, setMisc] = useState([]);
 
-	const categoryMapping: Record<SkillsCategory, Skill[]> = {
+	const categoryMapping = {
 		"Programming Languages": languages,
 		"Frameworks/Libraries": frameworks,
 		"Database/Cloud/Dev Tools": tools,
+		"Miscellaneous": misc,
 	};
 
-	const handleCategoryClick = (category: SkillsCategory) => {
+	const handleCategoryClick = (category) => {
 		setSelectedCategory(category);
 	};
 
@@ -166,7 +159,7 @@ function SkillDisplay() {
 				{Object.keys(skillsData).map((category) => (
 					<p
 						key={category}
-						onClick={() => handleCategoryClick(category as SkillsCategory)}
+						onClick={() => handleCategoryClick(category)}
 						className={`cursor-pointer transition-all ${
 							category === selectedCategory
 								? 'text-3xl text-light-100'
@@ -180,7 +173,7 @@ function SkillDisplay() {
 
 			<div className='mt-10 px-32 w-10/12'>
 				{/* {categoryMapping[selectedCategory].map((skill, index) => ( */}
-				{skillsData[selectedCategory].map((skill: Skill, index:number) => (
+				{skillsData[selectedCategory].map((skill, index) => (
 					<div key={index} className='mb-6'>
 						<p className='text-grayscale-900 text-2xl'>{skill.name}</p>
 						<p className='text-grayscale-900 text-lg'>Skill Level: {skill.level}</p>

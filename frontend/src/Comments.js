@@ -70,7 +70,7 @@ const Comments = () => {
 
 	useEffect(() => {
 		fetchComments();
-	});
+	}, []);
 
 	return (
 		<div className='text-grayscale-900 flex flex-row'>

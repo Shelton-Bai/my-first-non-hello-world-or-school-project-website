@@ -11,7 +11,7 @@ function App() {
 
 	return (
 		<Router>
-			<Navbar></Navbar>
+			{/* <Navbar></Navbar> */}
 				<div className="">
 					<Routes>
 						<Route index element={<Home/>} />

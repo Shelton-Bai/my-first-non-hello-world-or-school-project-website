@@ -126,25 +126,25 @@ function SkillDisplay() {
 
 	//fetches all skills
 	const fetchSkills = () => {
-		axios.get('http://localhost:8080/api/skills/languages')
+		axios.get('http://localhost:8080/api/skills/category/LANGUAGES')
 		.then(res => {
 			setLanguages(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/frameworks')
+		axios.get('http://localhost:8080/api/skills/category/FRAMEWORKS')
 		.then(res => {
 			setFrameworks(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/tools')
+		axios.get('http://localhost:8080/api/skills/category/TOOLS')
 		.then(res => {
 			setTools(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/misc')
+		axios.get('http://localhost:8080/api/skills/category/MISC')
 		.then(res => {
 			setMisc(res.data)
 		}).catch( err => {
@@ -155,8 +155,8 @@ function SkillDisplay() {
 	return (
 		<div className=''>
 			<div className='flex space-x-6 px-32 py-10 bg-gradient-to-bl from-grayscale-150 via-grayscale-200 to-grayscale-200'>
-				{/* {Object.keys(categoryMapping).map((category) => ( */}
-				{Object.keys(skillsData).map((category) => (
+				{Object.keys(categoryMapping).map((category) => (
+				// {Object.keys(skillsData).map((category) => (
 					<p
 						key={category}
 						onClick={() => handleCategoryClick(category)}
@@ -172,8 +172,8 @@ function SkillDisplay() {
 			</div>
 
 			<div className='mt-10 px-32 w-10/12'>
-				{/* {categoryMapping[selectedCategory].map((skill, index) => ( */}
-				{skillsData[selectedCategory].map((skill, index) => (
+				{categoryMapping[selectedCategory].map((skill, index) => (
+				// {skillsData[selectedCategory].map((skill, index) => (
 					<div key={index} className='mb-6'>
 						<p className='text-grayscale-900 text-2xl'>{skill.name}</p>
 						<p className='text-grayscale-900 text-lg'>Skill Level: {skill.level}</p>

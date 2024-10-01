@@ -1,11 +1,13 @@
-import Navbar from './Navbar';
-import Home from './Home';
-import Skills from './Skills';
-import Projects from './Projects';
-import About from './About';
+import Navbar from './Components/Navbar';
+import Home from './Pages/Home';
+import Skills from './Pages/Skills';
+import Projects from './Pages/Projects';
+import About from './Pages/About';
+import Admin from './Pages/Admin';
+import Events from './Pages/Events';
 
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Admin from './Admin';
+
 
 function App() {
 
@@ -17,7 +19,7 @@ function App() {
 						<Route index element={<Home/>} />
 						<Route path='/skills' element={<Skills />} />
 						<Route path='/projects' element={<Projects />} />
-						<Route path='/comments' element={<About />} />
+						<Route path='/events' element={<Events />} />
 						<Route path='/admin' element={<Admin />} />
 					</Routes>
 				</div>

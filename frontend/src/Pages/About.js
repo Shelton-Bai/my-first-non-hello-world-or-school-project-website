@@ -1,5 +1,5 @@
-import Comments from "./Comments";
-import Navbar from "./Navbar";
+import Comments from "../Components/Comments";
+import Navbar from "../Components/Navbar";
 
 function About() {
 	return (

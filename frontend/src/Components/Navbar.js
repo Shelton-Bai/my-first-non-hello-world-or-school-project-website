@@ -1,18 +1,16 @@
-
-
 const iconSize = 32;
 
 function Navbar() {
 	return (
-		<nav className="flex space-x-6 px-32 py-5 bg-gradient-to-bl from-grayscale-150 via-grayscale-200 to-grayscale-200 text-grayscale-900">
-			<div className="flex flex-row w-1/2">
+		<nav className="flex p-2 lg:px-32 lg:py-5 bg-gradient-to-bl from-grayscale-150 via-grayscale-200 to-grayscale-200 text-grayscale-900">
+			<div className="flex flex-row lg:flex-row w-2/3 lg:w-1/2">
 				<a className="navbar-link" href="/">Home</a>
 				<a className="navbar-link" href="/skills">Skills</a>
 				<a className="navbar-link" href="/projects">Projects</a>
-				<a className="navbar-link" href="/comments">Comments</a>
-				<a className="navbar-link" href="/admin">Admin</a>
+				<a className="navbar-link" href="/events">Events</a>
+				{/* <a className="navbar-link" href="/admin">Admin</a> */}
 			</div>
-			<div className="flex flex-row w-1/2 justify-end items-center gap-8">
+			<div className="flex flex-row w-1/3 lg:w-1/2 justify-end items-center gap-1 lg:gap-8">
 				<a target="_blank" href="https://github.com/Shelton-Bai" rel="noreferrer">
 					<GitHubIcon/>
 				</a>

@@ -100,6 +100,8 @@ const skillsData = {
 	],
 };
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 function SkillDisplay() {
 
 	const [selectedCategory, setSelectedCategory] = useState("Programming Languages");
@@ -113,7 +115,7 @@ function SkillDisplay() {
 		"Programming Languages": languages,
 		"Frameworks/Libraries": frameworks,
 		"Database/Cloud/Dev Tools": tools,
-		"Miscellaneous": misc,
+		"Misc.": misc,
 	};
 
 	const handleCategoryClick = (category) => {
@@ -126,25 +128,25 @@ function SkillDisplay() {
 
 	//fetches all skills
 	const fetchSkills = () => {
-		axios.get('http://localhost:8080/api/skills/category/LANGUAGES')
+		axios.get(apiUrl + '/skills/category/LANGUAGES')
 		.then(res => {
 			setLanguages(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/category/FRAMEWORKS')
+		axios.get(apiUrl + '/skills/category/FRAMEWORKS')
 		.then(res => {
 			setFrameworks(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/category/TOOLS')
+		axios.get(apiUrl + '/skills/category/TOOLS')
 		.then(res => {
 			setTools(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/category/MISC')
+		axios.get(apiUrl + '/skills/category/MISC')
 		.then(res => {
 			setMisc(res.data)
 		}).catch( err => {
@@ -154,7 +156,7 @@ function SkillDisplay() {
 
 	return (
 		<div className=''>
-			<div className='flex space-x-6 px-32 py-10 bg-gradient-to-bl from-grayscale-150 via-grayscale-200 to-grayscale-200'>
+			<div className='flex space-x-6 p-4 py-6 lg:px-32 lg:py-10 bg-gradient-to-bl from-grayscale-150 via-grayscale-200 to-grayscale-200'>
 				{Object.keys(categoryMapping).map((category) => (
 				// {Object.keys(skillsData).map((category) => (
 					<p
@@ -162,8 +164,8 @@ function SkillDisplay() {
 						onClick={() => handleCategoryClick(category)}
 						className={`cursor-pointer transition-all ${
 							category === selectedCategory
-								? 'text-3xl text-light-100'
-								: 'text-2xl text-light-200 hover:text-3xl hover:text-light-100'
+								? 'text-md lg:text-3xl text-light-100'
+								: 'text-sm lg:text-2xl text-light-200 hover:text-3xl hover:text-light-100'
 						}`}
 					>
 						{category}
@@ -171,13 +173,13 @@ function SkillDisplay() {
 				))}
 			</div>
 
-			<div className='mt-10 px-32 w-10/12'>
+			<div className='p-4 py-6 lg:mt-10 lg:px-32 lg:w-10/12'>
 				{categoryMapping[selectedCategory].map((skill, index) => (
 				// {skillsData[selectedCategory].map((skill, index) => (
 					<div key={index} className='mb-6'>
-						<p className='text-grayscale-900 text-2xl'>{skill.name}</p>
-						<p className='text-grayscale-900 text-lg'>Skill Level: {skill.level}</p>
-						<p className='text-grayscale-700 text-lg'>{skill.description}</p>
+						<p className='text-grayscale-900 text-xl lg:text-2xl'>{skill.name}</p>
+						<p className='text-grayscale-900 text-sm lg:text-lg'>Skill Level: {skill.level}</p>
+						<p className='text-grayscale-700 text-sm lg:text-lg'>{skill.description}</p>
 					</div>
 				))}
 			</div>

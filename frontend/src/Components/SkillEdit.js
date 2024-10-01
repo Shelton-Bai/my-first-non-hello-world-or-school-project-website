@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
+const apiUrl = process.env.REACT_APP_API_URL;
+
 const SkillEdit = () => {
 	//skill object arrays
 	const [languages, setLanguages] = useState([]);
@@ -22,25 +24,25 @@ const SkillEdit = () => {
 
 	//fetches all skills
 	const fetchSkills = () => {
-		axios.get('http://localhost:8080/api/skills/category/LANGUAGES')
+		axios.get(apiUrl + '/skills/category/LANGUAGES')
 		.then(res => {
 			setLanguages(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/category/FRAMEWORKS')
+		axios.get(apiUrl + '/skills/category/FRAMEWORKS')
 		.then(res => {
 			setFrameworks(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/category/TOOLS')
+		axios.get(apiUrl + '/skills/category/TOOLS')
 		.then(res => {
 			setTools(res.data)
 		}).catch( err => {
 			console.log(err);
 		})
-		axios.get('http://localhost:8080/api/skills/category/MISC')
+		axios.get(apiUrl + '/skills/category/MISC')
 		.then(res => {
 			setMisc(res.data)
 		}).catch( err => {
@@ -52,7 +54,7 @@ const SkillEdit = () => {
 
 	const onDelete = async (id) => {
 		try {
-			await axios.delete(`http://localhost:8080/api/skills/${id}`);
+			await axios.delete(`${apiUrl}/skills/${id}`);
 			alert('Skill deleted successfully');
 		} catch (error) {
 			console.error('Error deleting skill:', error);
@@ -157,7 +159,7 @@ const SkillCard = ({skill, fetchSkills, onDelete, skills}) => {
 		}
 		
 		try {
-			const response = await axios.put(`http://localhost:8080/api/skills/${id}`, skillJSON);
+			const response = await axios.put(`${apiUrl}/skills/${id}`, skillJSON);
 			// alert('Successfully Updated Skill!');
 		} catch (error) {
 			console.error(error);
@@ -194,7 +196,7 @@ const SkillCard = ({skill, fetchSkills, onDelete, skills}) => {
 		}
 
 		try {
-			await axios.post(`http://localhost:8080/api/skills/${skill.id}/reorder`, null, {
+			await axios.post(`${apiUrl}/skills/${skill.id}/reorder`, null, {
 				params: { previousSkillId, nextSkillId },
 			});
 			fetchSkills(); // Refresh the skills after reordering
@@ -287,7 +289,7 @@ const SkillsView = ({skills, onDelete, fetchSkills, selectedCategory}) => {
 		}
 		
 		try {
-			const response = await axios.post(`http://localhost:8080/api/skills`, skillJSON);
+			const response = await axios.post(`${apiUrl}/skills`, skillJSON);
 			// alert('Successfully Updated Skill!');
 		} catch (error) {
 			console.error(error);
@@ -299,7 +301,6 @@ const SkillsView = ({skills, onDelete, fetchSkills, selectedCategory}) => {
 		setDescription('');
 		setLevel('');
 		setId(-1);
-		
 	}
 
 	const resetForm = (e) => {

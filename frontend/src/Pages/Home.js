@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import Navbar from './Navbar';
+import Navbar from '../Components/Navbar';
 
 function Home() {
 
@@ -7,22 +7,22 @@ function Home() {
 		<div className='bg-gradient-to-tl from-grayscale-150 via-grayscale-100 to-grayscale-150 flex flex-col min-h-screen'>
 			<Navbar/>
 			<div className='bg-hexagonsdark bg-cover bg-fixed border-t-2 border-b-2 border-grayscale-150 border-solid'>
-				<div className='p-20 px-32 w-3/4'>
-					<p className='text-grayscale-900 text-6xl'>
+				<div className='p-4 py-6 lg:p-20 lg:px-32 lg:w-3/4'>
+					<p className='text-grayscale-900 text-4xl lg:text-6xl'>
 						Hi! I'm Shelton.
 					</p>
-					<p className='text-grayscale-800 text-xl'>
+					<p className='text-grayscale-800 text-lg lg:text-xl'>
 						<br/>
 						I'm a software developer from Audubon, Pennsylvania, a suburb near Philly. I graduated from the University of Pittsburgh, and I am currently searching for employment. Feel free to check out the Skills and Projects pages for a closer look at some of the things I can do, and if you have any suggestions, please leave a comment by the About page.
 					</p>
 				</div>
 			</div>
 
-			<div className='p-20 px-32 w-3/4'>
-				<p className='text-grayscale-900 text-3xl'>
+			<div className='p-4 py-6 lg:p-20 lg:px-32 lg:w-3/4'>
+				<p className='text-grayscale-900 text-2xl lg:text-3xl'>
 					What is this website?
 				</p>
-				<p className='text-grayscale-700 text-xl'>
+				<p className='text-grayscale-700 text-base lg:text-xl'>
 					<br/>
 					I was feeling kinda left out not having a personal website, because every software developer worth their salt has one. So I grabbed an Oracle Cloud Instance (because their free tier is completely free, not like just a free trial) and bada bing bada boom, here we are. The first iterations of this website were, let's just say not so easy on the eyes, but after watching a few YouTube videos and following their suggestions on designing websites, I'm happy with this current look.
 					<br/><br/>
@@ -76,26 +76,26 @@ function Timer() {
 
 	return (
 		<div className="text-grayscale-900 mt-10">
-			<p className='italic text-3xl'>🎵 And I've got a countdown timer 'till I'm destitute! 🎵</p>
-			<div className="flex justify-start space-x-4 text-6xl font-mono text-center mt-5">
+			<p className='italic text-sm lg:text-3xl'>🎵 And I've got a countdown timer 'till I'm destitute! 🎵</p>
+			<div className="flex justify-start space-x-4 lg:text-6xl font-mono text-center mt-5">
 				<div>
 					<p>{timeLeft.days}</p>
-					<p className="text-lg">Days</p>
+					<p className="lg:text-lg">Days</p>
 				</div>
 				<span>:</span>
 				<div>
 					<p>{timeLeft.hours}</p>
-					<p className="text-lg">Hours</p>
+					<p className="lg:text-lg">Hours</p>
 				</div>
 				<span>:</span>
 				<div>
 					<p>{timeLeft.minutes}</p>
-					<p className="text-lg">Minutes</p>
+					<p className="lg:text-lg">Minutes</p>
 				</div>
 				<span>:</span>
 				<div>
 					<p>{timeLeft.seconds}</p>
-					<p className="text-lg">Seconds</p>
+					<p className="lg:text-lg">Seconds</p>
 				</div>
 			</div>
 		</div>

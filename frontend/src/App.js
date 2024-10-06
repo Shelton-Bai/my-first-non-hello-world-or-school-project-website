@@ -13,7 +13,6 @@ function App() {
 
 	return (
 		<Router>
-			{/* <Navbar></Navbar> */}
 				<div className="">
 					<Routes>
 						<Route index element={<Home/>} />

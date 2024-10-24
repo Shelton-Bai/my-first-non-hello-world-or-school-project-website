@@ -82,6 +82,7 @@ function EventsDisplay({user, setLoggedIn, setUser}) {
 				Hello, {user.name}
 			</p>
 			<div>
+				{events.length === 0 && 'No Events'}
 				{events.map((event) => (
 					<div key={event.id}>
 						<p className="text-xl">{event.name}</p>

@@ -13,7 +13,7 @@ function Home() {
 					</p>
 					<p className='text-grayscale-800 text-lg lg:text-xl'>
 						<br/>
-						I'm a software developer from Audubon, Pennsylvania, a suburb near Philly. I graduated from the University of Pittsburgh, and I am currently searching for employment. Feel free to check out the Skills and Projects pages for a closer look at some of the things I can do, and if you have any suggestions, please leave a comment by the About page.
+						I'm a software developer from Audubon, Pennsylvania, a suburb near Philly. I graduated from the University of Pittsburgh, and I am currently searching for employment. Feel free to check out the Skills and Projects pages for a closer look at some of the things I can do.
 					</p>
 				</div>
 			</div>

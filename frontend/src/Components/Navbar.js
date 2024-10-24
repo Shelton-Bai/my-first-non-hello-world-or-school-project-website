@@ -7,7 +7,7 @@ function Navbar() {
 				<a className="navbar-link" href="/">Home</a>
 				<a className="navbar-link" href="/skills">Skills</a>
 				<a className="navbar-link" href="/projects">Projects</a>
-				<a className="navbar-link" href="/events">Events</a>
+				{/* <a className="navbar-link" href="/events">Events</a> */}
 				{/* <a className="navbar-link" href="/admin">Admin</a> */}
 			</div>
 			<div className="flex flex-row w-1/3 lg:w-1/2 justify-end items-center gap-1 lg:gap-8">

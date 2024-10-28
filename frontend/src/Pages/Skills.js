@@ -1,5 +1,5 @@
 import React from 'react';
-import Pdf from './Shelton Bai Resume.pdf';
+import Pdf from './Shelton_Bai_Resume.pdf';
 import SkillDisplay from '../Components/SkillDisplay';
 import Navbar from '../Components/Navbar';
 

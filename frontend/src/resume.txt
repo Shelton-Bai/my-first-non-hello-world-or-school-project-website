@@ -122,7 +122,7 @@
 \begin{center}
     \textbf{\Huge \scshape Shelton Bai} \\ \vspace{1pt}
     \small 484-688-3796 $|$ \href{mailto:x@x.com}{\underline{sb.sheltonbai@gmail.com}} $|$ 
-    \href{https://linkedin.com/in/...}{\underline{linkedin.com/in/shelton-bai2002}} $|$
+    \href{https://linkedin.com/in/...}{\underline{in/shelton-bai2002}} $|$
     \href{https://github.com/...}{\underline{github.com/Shelton-Bai}}
 \end{center}
 
@@ -141,10 +141,11 @@
   \resumeSubHeadingListStart
 
     \resumeSubheading
-      {Software Development Intern}{June 2024 -- Present}
+      {Software Developer}{June 2024 -- Present}
       {CAO Group, Inc.}{West Jordan, UT}
       \resumeItemListStart
         \resumeItem{Developed an AI chatbot for dentists to source information from academic papers using retrieval augmented generation}
+        \resumeItem{Fixed issues with AT commands setting incorrect values in Bluetooth modules}
       \resumeItemListEnd
       
 % -----------Multiple Positions Heading-----------
@@ -161,18 +162,18 @@
       {Software Development Intern}{May 2023 -- August 2023}
       {CAO Group, Inc.}{West Jordan, UT}
       \resumeItemListStart
-        \resumeItem{Assisted in developing iOS apps to be paired with dental lasers using Objective-C}
+        \resumeItem{Developed iOS applications in Objective-C to be paired with Bluetooth dental curing lasers, replacing the older Qt touchscreens for a modernized user experience}
         \resumeItem{Centralized management of laser presets and configurations, simplifying updates to existing laser firmware}
-        \resumeItem{Wrote a Python script to automate address validation of dental offices for the sales and marketing departments, reducing manual workload by 30\%}
-        \resumeItem{Learned and utilized AWS (EC2, S3, RDS, and Lambda) to build a proof-of-concept cloud based file sharing system, to be used with a new digital dental headset}
+        \resumeItem{Created a Python script to automate address validation of dental offices for the sales and marketing departments, reducing manual workload by 30\%}
+        \resumeItem{Leveraged AWS (EC2, S3, RDS, and Lambda) to build a proof-of-concept cloud based file sharing system, to be used with a new digital dental headset}
     \resumeItemListEnd
 
     \resumeSubheading
       {Software Development Intern}{June 2021 -- August 2021}
       {CAO Group, Inc.}{West Jordan, UT}
       \resumeItemListStart
-        \resumeItem{Wrote and tested embedded C for dental lasers and the bluetooth controllers for them}
-        \resumeItem{Fixed a memory leak which caused the lasers to malfunction after firing for a extended period of time}
+        \resumeItem{Wrote and tested embedded C for dental lasers and the Bluetooth paddle controllers for them}
+        \resumeItem{Fixed a memory leak from a buffer which caused the lasers to malfunction after firing continuously for around 30 seconds}
         \resumeItem{Used C++ and Qt to help develop the user interface for the dental lasers}
       \resumeItemListEnd
 
@@ -185,12 +186,14 @@
       \resumeProjectHeading
           {\textbf{sheltonbai.com} $|$ \emph{React, TailwindCSS, Spring Boot, MySQL, Docker, Oracle Cloud}}{}
           \resumeItemListStart
+            \resumeItem{github.com/Shelton-Bai/my-first-non-hello-world-or-school-project-website}
             \resumeItem{Personal webpage built using React, Spring Boot, and MySQL, containerized using Docker and run on an Oracle Cloud instance.}
             \resumeItem{Uses a Spring Web API to allow for quick and easy updates to content without having rebuild the docker images}
           \resumeItemListEnd
       \resumeProjectHeading
           {\textbf{P2 Teambuilder} $|$ \emph{React, TailwindCSS, Spring Boot, MySQL, Docker}}{}
           \resumeItemListStart
+            \resumeItem{github.com/Shelton-Bai/P2Teambuilder}
             \resumeItem{Full stack web application for creating and saving competitive Pokemon teams}
             \resumeItem{Sources information from Pokemon Showdown! and PokeAPI for up to date Pokemon data}
           \resumeItemListEnd

@@ -45,13 +45,13 @@ function Projects() {
 							<div className='flex-shrink-0'>
 								{project.image && (
 									<>
-										<img className='w-96 border border-white hover:cursor-pointer' src={`data:image/png;base64,${project.image}`} alt="image here" onClick={() => {setZoomed(project.id)}}/>
+										<img className='w-96 border border-white hover:cursor-pointer' src={`data:image/png;base64,${project.image}`} alt="image here" onClick={() => { setZoomed(project.id) }} />
 										{project.id === zoomed && (
 											<div className="fixed z-50 top-0 left-0 w-screen h-screen bg-black bg-opacity-50 flex flex-col items-center justify-center"
-											onClick={() => {setZoomed(-1)}}
+												onClick={() => { setZoomed(-1) }}
 											>
 												<p className="text-white">Click Anywhere to Hide</p>
-												<img className='w-full lg:w-2/3 border border-white' src={`data:image/png;base64,${project.image}`} alt="image here" onClick={() => {setZoomed(project.id)}}/>
+												<img className='w-full lg:w-2/3 border border-white' src={`data:image/png;base64,${project.image}`} alt="image here" onClick={() => { setZoomed(project.id) }} />
 											</div>
 										)}
 									</>
